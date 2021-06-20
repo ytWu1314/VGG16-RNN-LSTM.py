@@ -139,8 +139,8 @@ plt.show()
 
 （4）执行一些文本清理，例如删除标点符号，单个字符和数字值，得到词汇量
 
-```pyhton
-vocabulary = []
+```python
+vocabulary = []
 for txt in data.caption.values:
    vocabulary.extend(txt.split())
 print('Vocabulary Size: %d' % len(set(vocabulary)))
