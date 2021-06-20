@@ -46,7 +46,7 @@ Eg:
 
 ![image8](https://github.com/ytWu1314/VGG16-RNN-LSTM.py/blob/master/image/image8.png)
 
-## 实验方案
+## 三、实验方案
 (1) 导入所需的库
 
 ``` python
@@ -200,7 +200,7 @@ image_features_extract_model.summary()
 
 （6）利用LSTM对语言序列进行处理
 
-#### 四、参考文献
+## 四、参考文献
 
 [1] 图像物体分类与检测算法综述[J]. 黄凯奇,任伟强,谭铁牛. 计算机学报. 2014(06) 
 
