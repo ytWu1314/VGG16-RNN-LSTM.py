@@ -28,8 +28,60 @@ Eg:
 (2)VGG16预训练模型
 ![image3](https://github.com/ytWu1314/VGG16-RNN-LSTM.py/blob/master/image/image3.png)
 
+
 24x224x3的彩色图表示3通道的长和宽都为224的图像数据，也是网络的输入层白色部分为卷积层，红色部分为池化层（使用最大池化），蓝色部分为全连接层，其中卷积层和全连接层的激活函数都使用RELU函数。总的来说，VGG16网络为13层卷积层+3层全连接层而组成。具体结构如下：
+
+![image6](https://github.com/ytWu1314/VGG16-RNN-LSTM.py/blob/master/image/image6.png)
 
 （3）LSTM长短期记忆网络
 长短期记忆网络（LSTM，Long Short-Term Memory）是一种时间循环神经网络，是为了解决一般的RNN（循环神经网络）存在的长期依赖问题而专门设计出来的，所有的RNN都具有一种重复神经网络模块的链式形式。相比普通的RNN，LSTM能够在更长的序列中有更好的表现。
 
+![image4](https://github.com/ytWu1314/VGG16-RNN-LSTM.py/blob/master/image/image4.png)
+
+![image7](https://github.com/ytWu1314/VGG16-RNN-LSTM.py/blob/master/image/image7.png)
+
+![image8](https://github.com/ytWu1314/VGG16-RNN-LSTM.py/blob/master/image/image8.png)
+
+## 实验方案
+(1) 导入所需的库
+
+``` python
+import numpy as np
+import pandas as pd
+from numpy import array
+from pickle import load
+import string
+
+from PIL import Image
+import pickle
+from collections import Counter
+import matplotlib.pyplot as plt
+ 
+import sys, time, os, warnings
+warnings.filterwarnings("ignore")
+import re
+ 
+import keras
+import tensorflow as tf
+from tqdm import tqdm
+from nltk.translate.bleu_score import sentence_bleu
+ 
+from keras.preprocessing.sequence import pad_sequences
+from keras.utils import to_categorical
+from keras.utils import plot_model
+from keras.models import Model
+from keras.layers import Input
+from keras.layers import Dense, BatchNormalization
+from keras.layers import LSTM
+from keras.layers import Embedding
+from keras.layers import Dropout
+from keras.layers.merge import add
+from keras.callbacks import ModelCheckpoint
+from keras.preprocessing.image import load_img, img_to_array
+from keras.preprocessing.text import Tokenizer
+from keras.applications.vgg16 import VGG16, preprocess_input
+ 
+from sklearn.utils import shuffle
+from sklearn.model_selection import train_test_split
+from sklearn.utils import shuffle
+```
